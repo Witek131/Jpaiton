@@ -1,8 +1,6 @@
-for i in range(1, 1000):
-    s = '1'*8
-    while '111' in s:
-        s = s.replace('111', '2', 1)
-        s = s.replace('222', '11',1)
-        s = s.replace('1', '2', 1)
-    if s.count('1') > 0:
-        print(i, s)
+f = open('24102024/26.txt').read().split('\n')
+mas = dict()
+for i in f:
+    s = i.split()
+    mas[s[0]] = [sum(int(s[j]) for j in range(1,len(s))), sum(int(s[j]) for j in range(1,len(s)) if int(s[j]) > 0), sum(int(s[j]) for j in range(1,len(s)) if int(s[j]) != 0)]
+print(mas)
